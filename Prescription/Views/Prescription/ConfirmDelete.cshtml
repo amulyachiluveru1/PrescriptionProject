@@ -1,0 +1,13 @@
+﻿@model Prescription
+
+<h3>Confirm Delete</h3>
+
+<div class="alert alert-warning">
+    Are you sure you want to delete the prescription for <strong>@Model.MedicationName</strong> requested on <strong>@Model.RequestTime.ToString("MM/dd/yyyy HH:mm")</strong>?
+</div>
+
+<form asp-controller="Prescription" asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="prescriptionId" value="@Model.PrescriptionId" />
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>
